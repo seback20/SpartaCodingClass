@@ -1,0 +1,185 @@
+<html>
+<head>
+    <title>2nd_Homework</title>
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
+
+
+    <style>
+      
+      *{
+       font-family: 'Yeon Sung', cursive;;
+      }
+
+      .wrap {
+             width: 500px;
+             margin: auto;
+              }
+
+      .productimage {
+            color: white;
+            text-align: center;
+            background-image: url('http://static1.squarespace.com/static/586103a86b8f5b1c08dcb3ba/586a7f5c46c3c4a162ff2f06/586ab4e7ff7c50bb14e036a3/1560447855384/06-EDENS-CANDLE-HIGH-SOCIETY-LIFESTYLE-1-2.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 500px;
+            height: 500px;
+            margin: 30px auto;
+        
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+
+
+      .ItemName >h1,h5 {
+        display: inline;
+        margin: 30px auto;
+
+      }
+
+      .productdetail {
+        margin: 30px auto;
+      }
+    
+      .table {
+        margin: 30px auto;
+      }
+      
+
+    </style>
+
+    <script>
+          function ordercandle(){
+              var aa = $('#ordercandle').val();
+
+        if (aa == '') {
+          alert('빈칸입니다.')
+        } else {
+          alert('주문이 완료되었습니다.')
+        }
+      }
+    
+      $.ajax({
+          type: "GET",
+          url: "http://spartacodingclub.shop/order",
+          data: {},
+          success: function(response){
+              let result = response["order"];
+              console.log(result);
+            for (let i = 0; i < rows.length; i++) {
+
+              let 이름 = rows[i]['name'];
+              let 수량 = rows[i]['count'];
+              let 주소 = rows[i] ['address']
+              let 전화번호 = rows[i] ['phone']
+              
+              let temp_html = '<tr>';
+              let temp_html += '<td>'location'</td>'
+              let temp_html += '<td>'total'</td>'
+              let temp_html += '<td>'availalbe'</td>'                    
+
+              '</tr>'
+
+            }
+
+
+    </script>
+
+</head>
+<body>
+    <div class="wrap">
+      <div class="productimage">
+      </div>
+
+    <div class="ItemName">  
+        <h1>Eden's Theory</h1>
+        <h5>가격:1.9</h5>
+        </div>
+
+    <div class="Productdetail"
+        <h7>이 양초는 사실 특별한 힘을 가지고 있어요. 양초를 켜고 소원을 빌면 짜자잔 뭐든지 이뤄지게 된답니다. 하나 사가세요! 대나무 향이 아주 좋아요</h7>
+      </div>
+      
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">주문자이름</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">수량</label>
+      </div>
+      <select class="custom-select" id="inputGroupSelect01">
+        <option selected>수량</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+   
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">주소</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+   
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">전화번호</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="checkout">
+     <button onclick="order()" class="btn btn-primary btn-sm">주문하기
+      <ul id="ordercandle">
+      </ul>
+      </button>
+      </div>
+
+
+      <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">이름</th>
+          <th scope="col">수량</th>
+          <th scope="col">주소</th>
+          <th scope="col">전화번호</th>
+        </tr>
+      </thead>
+      <tbody id="oreder_list">
+        <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+          </tr>
+          <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+
+</body>
+</html>
